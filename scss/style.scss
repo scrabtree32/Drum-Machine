@@ -1,0 +1,170 @@
+$background-color: #5f9ea0;
+$button-color: #a0d6b4;
+$toggle-color: #a3c1ad;
+$light-toggle-color: #dae6de;
+$display-color: #49796b;
+$volume-color: #a0d6b4;
+
+body{
+  background-color: $toggle-color;
+}
+#drum-machine {
+  margin: 0px auto;
+  width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  padding: 20px 10px;
+  background-color: $background-color;
+  @media screen and (min-width: 700px) {
+    display: flex;
+    width: 650px;
+    height: 300px;
+    position: relative;
+    margin: 8% auto;
+  }
+  #drum-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 250px;
+    width: 300px;
+    grid-gap: 5px;
+    @media screen and (min-width: 700px) {
+      height: 300px;
+      width: 350px;
+    }
+    .drum-pad {
+      text-align: center;
+      border: solid 1px black;
+      border-radius: 5px;
+      padding-top: 40px;
+      cursor: pointer;
+      background-color: $button-color;
+      &:hover {
+        background-color: $display-color;
+      }
+    }
+  }
+  #controls {
+    @media screen and (min-width: 700px) {
+      padding: 35px;
+    }
+    #power {
+      margin: 40px auto 30px auto;
+      width: 230px;
+      display: flex;
+      justify-content: space-around;
+      #text {
+        padding-top: 6px;
+      }
+      div {
+        display: inline-block;
+      }
+    }
+    #display {
+      background-color: $display-color;
+      height: 30px;
+      width: 150px;
+      text-align: center;
+      margin: auto;
+      color: black;
+      p {
+        padding-top: 5px;
+      }
+    }
+  }
+}
+
+/* The switch - the box */
+#switch {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 30px;
+}
+
+/* Hide default HTML checkbox */
+#switch input {
+  display:none;
+}
+
+/* The slider */
+#slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $toggle-color;
+  -webkit-transition: .4s;
+  -moz-transition: .4s;
+  transition: .4s;
+}
+
+#slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  -moz-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + #slider {
+  background-color: $light-toggle-color;
+}
+
+input:focus + #slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + #slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+//volume slider
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 80%;
+    margin: 30px 10%;
+    height: 10px;
+    border-radius: 5px;
+    background: $volume-color;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background: $toggle-color;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
